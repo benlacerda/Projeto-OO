@@ -2,7 +2,6 @@ package Modelo;
 import java.util.*;
 public class ItensVenda {
     //Atributos
-
     private Bone item_venda;
     private int qntd_venda;
 
@@ -27,4 +26,5 @@ public class ItensVenda {
     public void setQntd_venda(int qntd_venda) {
         this.qntd_venda = qntd_venda;
     }
+
 }

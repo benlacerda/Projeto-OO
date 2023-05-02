@@ -21,7 +21,7 @@ public class Bone {
         qntd_bone=q;
     }
 
-
+    //Gets e sets
     public String getNome_bone(){
         return nome_bone;
     }
@@ -67,6 +67,7 @@ public class Bone {
         this.qntd_bone=qntd_bone;
     }
 
+    // Representar em String o objeto
     @Override
     public String toString()
     {

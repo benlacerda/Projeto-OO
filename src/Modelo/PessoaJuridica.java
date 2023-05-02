@@ -18,7 +18,9 @@ public class PessoaJuridica extends Pessoa{
     public void setNum_cnpj(String num_cnpj){
         this.num_cnpj=num_cnpj;
     }
-    //overriding the toString() method
+
+    // Representar em String o objeto
+    @Override
     public String toString()
     {
         return this.num_cnpj;

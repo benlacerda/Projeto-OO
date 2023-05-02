@@ -2,7 +2,6 @@ package Modelo;
 
 public class Endereco {
     //Atributos
-
     private String cidade;
     private String estado;
     private String pais;
@@ -10,6 +9,7 @@ public class Endereco {
     private String logradouro;
     private String complemento;
 
+    //Métodos
     public Endereco(String cid, String est, String ps, String cep, String logra, String comp){
         cidade=cid;
         estado=est;
@@ -67,7 +67,7 @@ public class Endereco {
         this.complemento = complemento;
     }
 
-    //overriding the toString() method
+    // Representar em String o objeto
     @Override
     public String toString()
     {

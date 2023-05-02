@@ -18,7 +18,8 @@ public class PessoaFisica extends Pessoa{
     public void setNum_cpf(String num_cpf){
         this.num_cpf=num_cpf;
     }
-    //overriding the toString() method
+
+    // Representar em String o objeto
     @Override
     public String toString()
     {

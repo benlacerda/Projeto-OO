@@ -1,5 +1,4 @@
 package Modelo;
-import java.util.*;
 //Classe Abstrata
 public abstract class Pessoa {
     //Atributos
@@ -9,7 +8,6 @@ public abstract class Pessoa {
     protected int telefone;
 
     //Métodos
-
     public String getNome(){
         return nome;
     }

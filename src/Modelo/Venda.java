@@ -8,6 +8,7 @@ public class Venda {
     private List<Bone> bone;
     private List<Pagamento> met_pag;
 
+    //Métodos
     public Venda(int id){
         id_venda=id;
     }
@@ -35,7 +36,8 @@ public class Venda {
     public void setMet_pag(List<Pagamento> met_pag) {
         this.met_pag = met_pag;
     }
-    //overriding the toString() method
+
+    // Representar em String o objeto
     @Override
     public String toString()
     {

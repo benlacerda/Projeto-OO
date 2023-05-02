@@ -1,5 +1,6 @@
 package Modelo;
 
+//Testar todas classes
 public class Teste {
 	public static void main(String[] args) {
 		//Populando os objetos
@@ -14,7 +15,6 @@ public class Teste {
 		PessoaJuridica pj = new PessoaJuridica("77513998000152");
 
 		//Print dos dados no console
-
 		System.out.println(b1.toString());
 		System.out.println(f1.toString());
 		System.out.println(end1);

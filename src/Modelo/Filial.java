@@ -62,7 +62,8 @@ public class Filial {
     public void setEstoque(List<Bone> estoque){
         this.estoque=estoque;
     }
-    //overriding the toString() method
+
+    // Representar em String o objeto
     @Override
     public String toString()
     {

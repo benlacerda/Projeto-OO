@@ -2,7 +2,6 @@ package Modelo;
 
 public class Pagamento {
     //Atributos
-
     private String metodo_pag;
     private String bandeira;
     private String numero;
@@ -53,7 +52,7 @@ public class Pagamento {
         this.validade = validade;
     }
 
-    //overriding the toString() method
+    // Representar em String o objeto
     @Override
     public String toString()
     {
