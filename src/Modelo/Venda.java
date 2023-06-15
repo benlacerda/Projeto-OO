@@ -38,7 +38,6 @@ public class Venda {
     }
 
     // Representar em String o objeto
-    @Override
     public String toString()
     {
         return this.id_venda+ " " + this.bone + " " + this.met_pag;

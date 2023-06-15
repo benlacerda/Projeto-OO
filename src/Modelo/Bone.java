@@ -1,15 +1,20 @@
 package Modelo;
 
 // Classe Bone
+//Herança
 public class Bone {
 
     //Atributos
-    private String nome_bone;
-    private String marca_bone;
-    private String preco_bone;
-    private String descricao_bone;
-    private String foto_bone;
-    private String qntd_bone;
+    protected String nome_bone;
+    protected String marca_bone;
+    protected String preco_bone;
+    protected String descricao_bone;
+    protected String foto_bone;
+    protected String qntd_bone;
+
+    public Bene(){
+        super();
+    }
 
     //Métodos
     public Bone(String nm, String mrc, String prc, String des, String img, String q){
@@ -68,7 +73,6 @@ public class Bone {
     }
 
     // Representar em String o objeto
-    @Override
     public String toString()
     {
         return this.nome_bone + " " + this.marca_bone + " " + this.preco_bone+ " " + this.descricao_bone+ " " + this.foto_bone+ " " + this.qntd_bone;

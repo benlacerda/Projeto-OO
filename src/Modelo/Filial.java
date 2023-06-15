@@ -12,10 +12,12 @@ public class Filial {
 
 
     //Métodos
-    public Filial(String nm, String cid, String tel){
+    public Filial(String nm, String cid,String end, String tel, String cnpj){
         nome_filial=nm;
         cidade_filial= cid;
+        endereco_filial= end;
         tel_filial = tel;
+        cnpj_filial= cnpj;
     }
     public String getNome_filial(){
         return nome_filial;
@@ -64,7 +66,6 @@ public class Filial {
     }
 
     // Representar em String o objeto
-    @Override
     public String toString()
     {
         return this.nome_filial + " " + this.cidade_filial + " " + this.endereco_filial+ " " + this.tel_filial
