@@ -1,12 +1,12 @@
 package Modelo;
-import java.util.*;
-public class ItensVenda {
+
+public class ItemVenda {
     //Atributos
     private Bone item_venda;
     private int qntd_venda;
 
     //Métodos
-    public ItensVenda(Bone bn, int q){
+    public ItemVenda(Bone bn, int q){
         item_venda=bn;
         qntd_venda=q;
     }

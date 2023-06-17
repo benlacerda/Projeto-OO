@@ -6,7 +6,6 @@ public class Venda {
     //Atributos
     private int id_venda;
     private List<Bone> bone;
-    private List<Pagamento> met_pag;
 
     //Métodos
     public Venda(int id){
@@ -29,17 +28,11 @@ public class Venda {
         this.bone = bone;
     }
 
-    public List<Pagamento> getMet_pag() {
-        return met_pag;
-    }
 
-    public void setMet_pag(List<Pagamento> met_pag) {
-        this.met_pag = met_pag;
-    }
 
     // Representar em String o objeto
     public String toString()
     {
-        return this.id_venda+ " " + this.bone + " " + this.met_pag;
+        return this.id_venda+ " " + this.bone;
     }
 }

@@ -12,7 +12,7 @@ public class Bone {
     protected String foto_bone;
     protected String qntd_bone;
 
-    public Bene(){
+    public Bone(){
         super();
     }
 
