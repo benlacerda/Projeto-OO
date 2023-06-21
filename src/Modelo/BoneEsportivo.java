@@ -7,7 +7,7 @@ public class BoneEsportivo extends Bone {
     private int codigo_id_esportivo;
 
     // Construtor
-    public BoneEsportivo(String nm, String mrc, double prc, String des, URL img, int qntde, String tp_esport, int cod_id) {
+    public BoneEsportivo(String nm, String mrc, double prc, String des, String img, int qntde, String tp_esport, int cod_id) {
         super(nm, mrc, prc, des, img, qntde);
         tipo_esportivo = tp_esport;
         codigo_id_esportivo = cod_id;

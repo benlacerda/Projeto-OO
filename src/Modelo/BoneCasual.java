@@ -7,7 +7,7 @@ public class BoneCasual extends Bone {
     private int codigo_id_casual;
 
     // Construtor
-    public BoneCasual(String nm, String mrc, double prc, String des, URL img, int qntde, String tp_casu, int cod_id) {
+    public BoneCasual(String nm, String mrc, double prc, String des, String img, int qntde, String tp_casu, int cod_id) {
         super(nm, mrc, prc, des, img, qntde);
         tipo_casual = tp_casu;
         codigo_id_casual = cod_id;

@@ -12,7 +12,7 @@ public class Bone {
     protected String foto_bone;
     protected String qntd_bone;
 
-    public Bone(){
+    public Bone(String nome1, String marca1, double v, String descrição1, String url, int i){
         super();
     }
 
