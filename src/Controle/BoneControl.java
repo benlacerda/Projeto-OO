@@ -8,7 +8,7 @@ public class BoneControl {
     private Dados dados;
 
     public BoneControl(Dados dados) {
-        this.dados = dados;
+        this.dados = this.dados;
     }
 
     public Bone[] listarBones() {

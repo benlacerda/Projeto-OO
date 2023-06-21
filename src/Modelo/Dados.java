@@ -17,6 +17,15 @@ public final class Dados {
         dFiliais[2] = new Filial("Filial3", "Cidade3", "Endereço3", "Telefone3", "CNPJ3");
     }
 
+    // Método getInstance para obter a instância única
+    public static Dados getInstance() {
+        Dados instancia = null;
+        if (instancia == null) {
+            instancia = new Dados();
+        }
+        return instancia;
+    }
+
     public Bone[] getdBones() {
         return dBones;
     }
