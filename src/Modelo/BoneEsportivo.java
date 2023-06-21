@@ -1,39 +1,38 @@
 package Modelo;
 
-public class BoneEsportivo extends Bone{
+public class BoneEsportivo extends Bone {
 
-    //Atributos
+    // Atributos
     private String tipo_esportivo;
     private int codigo_id_esportivo;
 
-    //Metodos
-
-    //Sobrescrita
-    public BoneCasual(String nm, String mrc, String prc, String des, String img, String qntde, tp_casu, cod_id){
-        super(nm, mrc, prc,des, img, qntde);
-        tipo_esportivo = tp_casu;
+    // Construtor
+    public BoneEsportivo(String nm, String mrc, double prc, String des, URL img, int qntde, String tp_esport, int cod_id) {
+        super(nm, mrc, prc, des, img, qntde);
+        tipo_esportivo = tp_esport;
         codigo_id_esportivo = cod_id;
     }
 
-    public String getTipo_esportivo(){
+    // Getters e Setters
+    public String getTipo_esportivo() {
         return tipo_esportivo;
     }
 
-    public void setTipo_esportivo(String tipo_esportivo){
-        this.tipo_esportivo=tipo_esportivo;
+    public void setTipo_esportivo(String tipo_esportivo) {
+        this.tipo_esportivo = tipo_esportivo;
     }
 
-    public String getCodigo_id(){
+    public int getCodigo_id() {
         return codigo_id_esportivo;
     }
 
-    public void setCodigo_id(String codigo_id_esportivo){
-        this.codigo_id_esportivo=codigo_id_esportivo;
+    public void setCodigo_id(int codigo_id_esportivo) {
+        this.codigo_id_esportivo = codigo_id_esportivo;
     }
 
-    //public String toString()
-    {
-        //return this.num_cnpj;
+    // Representar o objeto como String
+    @Override
+    public String toString() {
+        return super.toString() + " " + tipo_esportivo + " " + codigo_id_esportivo;
     }
-
 }

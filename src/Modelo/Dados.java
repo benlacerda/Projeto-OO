@@ -1,53 +1,50 @@
 package Modelo;
 
-// Classe Dados para ser o nosso "Banco de dados"
-
 public final class Dados {
 
-    //Array contendo as classes do projeto.
-
+    // Array contendo as classes do projeto.
     private static Bone[] dBones = new Bone[50];
     private static Filial[] dFilial = new Filial[50];
     private static ItemVenda[] dItens = new ItemVenda[150];
     private static Venda[] dVendas = new Venda[50];
 
-    //Dados pre-carregados
+    // Dados pré-carregados
     static {
-
-        //dBones[0] = new Bone();
-        //dBones[1] = new Bone();
-        //dBones[2] = new Bone();
-        //dBones[3] = new Bone();
-
-        //dVendas[0] = new Venda('C', 1);
-        //dVendas[0].addItem(new ItemVenda(dBones[0], 1));
-        //dVendas[1] = new Venda('B', 2);
-        //dVendas[1].addItem(new ItemVenda(dBones[0], 2));
-        //dVendas[1].addItem(new ItemVenda(dBones[1], 3));
-        //dVendas[2] = new Venda('P', 3);
-        //dVendas[2].addItem(new ItemVenda(dBones[0], 1));
-        //dVendas[2].addItem(new ItemVenda(dBones[1], 3));
-        //dVendas[2].addItem(new ItemVenda(dBones[2], 5));
+        dBones[0] = new Bone("Nome1", "Marca1", 10.0, "Descrição1", new URL("http://example.com/imagem1.jpg"), 5);
+        dBones[1] = new Bone("Nome2", "Marca2", 15.0, "Descrição2", new URL("http://example.com/imagem2.jpg"), 10);
+        dBones[2] = new Bone("Nome3", "Marca3", 20.0, "Descrição3", new URL("http://example.com/imagem3.jpg"), 8);
     }
 
-    //gets e sets
-    public Bone[] getdBone() {
+    // Getters e Setters
+    public Bone[] getdBones() {
         return dBones;
     }
-    public void inserirEditaBone(Bone bon, int pos) {
-        Dados.dBones[pos] = bon;
+
+    public void setdBones(Bone[] dBones) {
+        Dados.dBones = dBones;
     }
-    public Filial[] getdFilial() {return dFilial;}
-    public void inserirEditaFilial(Filial[] e) {
-        Dados.dFilial = e;
+
+    public Filial[] getdFilial() {
+        return dFilial;
     }
+
+    public void setdFilial(Filial[] dFilial) {
+        Dados.dFilial = dFilial;
+    }
+
     public ItemVenda[] getdItens() {
         return dItens;
     }
+
+    public void setdItens(ItemVenda[] dItens) {
+        Dados.dItens = dItens;
+    }
+
     public Venda[] getdVendas() {
         return dVendas;
     }
-    public void inserirEditaVenda(Venda v, int pos) {
-        Dados.dVendas[pos] = v;
+
+    public void setdVendas(Venda[] dVendas) {
+        Dados.dVendas = dVendas;
     }
 }
