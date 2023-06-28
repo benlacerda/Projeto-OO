@@ -47,6 +47,14 @@ public class BoneCasualControl extends DadosControl {
 		String des = String.valueOf(bc[i].getDescricao_bone());
 		return des;
 	}
+    public String getTipoCasual(int i) {
+		String tpCasual = String.valueOf(bc[i].getTipo_casual());
+		return tpCasual;
+	}
+    public String getCodCasual(int i) {
+		String codCasual = String.valueOf(bc[i].getCodigo_id());
+		return codCasual;
+	}
 
 	
 

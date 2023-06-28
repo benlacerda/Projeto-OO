@@ -1,9 +1,19 @@
 package Controle;
 
 import Modelo.Bone;
+import Modelo.BoneEsportivo;
 import Modelo.Dados;
 
-public class BoneControl extends DadosControl {
+public class BoneEsportivoControl extends DadosControl {
+
+    private BoneEsportivo[] be;
+    private int qntdbc;
+
+    public BoneCasualControl(DadosControl d) {
+		bc = d.getBoneCasuals();
+		qntdbc = d.getQntd_boneCasuals();
+	}
+
 
     @Override
     public Bone[] getLista() {
