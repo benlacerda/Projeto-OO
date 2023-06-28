@@ -3,53 +3,39 @@ package Controle;
 import Modelo.Bone;
 import Modelo.Dados;
 
-public class BoneControl {
+public class BoneControl extends DadosControl {
 
-    private Dados dados;
+    @Override
+    public Bone[] getLista() {
+        // Obtenha a lista de Bones do objeto Dados
+        Dados dados = getDados();
+        Bone[] listaBones = dados.getListaBones();
 
-    public BoneControl(Dados dados) {
-        this.dados = this.dados;
+        // Retorne a lista de Bones
+        return listaBones;
     }
 
-    public Bone[] listarBones() {
-        return dados.getdBones();
+    @Override
+    public boolean inserir(String[] dados) {
+        // Lógica para inserir um novo Bone na lista
+        // Implemente de acordo com seus requisitos
+
+        return false; // Retorne true se a inserção for bem-sucedida, caso contrário, false
     }
 
-    public Bone buscarBonePorNome(String nome) {
-        for (Bone bone : dados.getdBones()) {
-            if (bone != null && bone.getNome_bone().equalsIgnoreCase(nome)) {
-                return bone;
-            }
-        }
-        return null;
+    @Override
+    public boolean editar(String[] dados) {
+        // Lógica para editar um Bone na lista
+        // Implemente de acordo com seus requisitos
+
+        return false; // Retorne true se a edição for bem-sucedida, caso contrário, false
     }
 
-    public void cadastrarBone(Bone bone) {
-        for (int i = 0; i < dados.getdBones().length; i++) {
-            if (dados.getdBones()[i] == null) {
-                dados.getdBones()[i] = bone;
-                break;
-            }
-        }
-    }
+    @Override
+    public boolean remover(int i) {
+        // Lógica para remover um Bone da lista
+        // Implemente de acordo com seus requisitos
 
-    public void editarBone(String nome, Bone boneEditado) {
-        for (int i = 0; i < dados.getdBones().length; i++) {
-            Bone bone = dados.getdBones()[i];
-            if (bone != null && bone.getNome_bone().equalsIgnoreCase(nome)) {
-                dados.getdBones()[i] = boneEditado;
-                break;
-            }
-        }
-    }
-
-    public void excluirBone(String nome) {
-        for (int i = 0; i < dados.getdBones().length; i++) {
-            Bone bone = dados.getdBones()[i];
-            if (bone != null && bone.getNome_bone().equalsIgnoreCase(nome)) {
-                dados.getdBones()[i] = null;
-                break;
-            }
-        }
+        return false; // Retorne true se a remoção for bem-sucedida, caso contrário, false
     }
 }
