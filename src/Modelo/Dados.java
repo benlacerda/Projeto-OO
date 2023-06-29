@@ -17,9 +17,9 @@ public class Dados {
         dBonesEsportivos[5] = new BoneEsportivo("Nome2", "Marca2", 15.0, "Descrição2", "Esportivo", "45");
         dBonesEsportivos[6] = new BoneEsportivo("Nome3", "Marca3", 20.0, "Descrição3", "Esportivo", "96");
 
-        dFiliais[0] = new Filial("Filial1", "Cidade1", "Endereço1", "Telefone1", "CNPJ1");
-        dFiliais[1] = new Filial("Filial2", "Cidade2", "Endereço2", "Telefone2", "CNPJ2");
-        dFiliais[2] = new Filial("Filial3", "Cidade3", "Endereço3", "Telefone3", "CNPJ3");
+        dFiliais[0] = new Filial("Filial1", "Cidade1");
+        dFiliais[1] = new Filial("Filial2", "Cidade2");
+        dFiliais[2] = new Filial("Filial3", "Cidade3");
     }
 
     public BoneCasual[] getdBonesCasuals() {
@@ -61,5 +61,8 @@ public class Dados {
 	}
     public void inserirEditaFilial(Filial[] f) {
         Dados.dFiliais = f;
+    }
+    public Bone[] getListaBones() {
+        return null;
     }
 }

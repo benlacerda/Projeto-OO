@@ -1,65 +1,60 @@
 package Modelo;
 
-// Classe Bone
-//Herança
+// Classe Bone (classe pai)
 public class Bone {
 
-    //Atributos
+    // Atributos
     protected String nome_bone;
     protected String marca_bone;
     protected double preco_bone;
     protected String descricao_bone;
 
-    public Bone(String nome1, String marca1, double v, String descrição1, String url, int i){
-        super();
+    // Construtor
+    public Bone(String nm, String mrc, double prc, String des) {
+        nome_bone = nm;
+        marca_bone = mrc;
+        preco_bone = prc;
+        descricao_bone = des;
     }
 
-    //Métodos
-    public Bone(String nm, String mrc, Double prc, String des){
-        nome_bone=nm;
-        marca_bone=mrc;
-        preco_bone=prc;
-        descricao_bone=des;
-    }
+    // Métodos
 
-    //Gets e sets
-    public String getNome_bone(){
+    // Getters e Setters
+    public String getNome_bone() {
         return nome_bone;
     }
 
-    public void setNome_bone(String nome_bone){
-        this.nome_bone=nome_bone;
+    public void setNome_bone(String nome_bone) {
+        this.nome_bone = nome_bone;
     }
 
-    public String getMarca_bone(){
+    public String getMarca_bone() {
         return marca_bone;
     }
 
-    public void setMarca_bone(String marca_bone){
-        this.marca_bone=marca_bone;
+    public void setMarca_bone(String marca_bone) {
+        this.marca_bone = marca_bone;
     }
 
-    public double getPreco_bone(){
+    public double getPreco_bone() {
         return preco_bone;
     }
 
-    public void setPreco_bone(Double preco_bone){
-        this.preco_bone=preco_bone;
+    public void setPreco_bone(double preco_bone) {
+        this.preco_bone = preco_bone;
     }
-    public String getDescricao_bone(){
+
+    public String getDescricao_bone() {
         return descricao_bone;
     }
 
-    public void setDescricao_bone(String descricao_bone){
-        this.descricao_bone=descricao_bone;
+    public void setDescricao_bone(String descricao_bone) {
+        this.descricao_bone = descricao_bone;
     }
 
-    // Representar em String o objeto
-    public String toString()
-    {
-        return this.nome_bone + " " + this.marca_bone + " " + this.preco_bone+ " " + this.descricao_bone;
+    // Representar o objeto como String
+    @Override
+    public String toString() {
+        return nome_bone + " " + marca_bone + " " + preco_bone + " " + descricao_bone;
     }
-
-
-
 }

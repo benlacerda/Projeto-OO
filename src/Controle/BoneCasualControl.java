@@ -52,7 +52,7 @@ public class BoneCasualControl extends DadosControl {
 		return tpCasual;
 	}
     public String getCodCasual(int i) {
-		String codCasual = String.valueOf(bc[i].getCodigo_id());
+		String codCasual = String.valueOf(bc[i].getCodigo_id_casual());
 		return codCasual;
 	}
 

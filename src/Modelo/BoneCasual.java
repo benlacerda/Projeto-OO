@@ -3,8 +3,8 @@ package Modelo;
 public class BoneCasual extends Bone {
 
     // Atributos
-    private String tipo_casual;
-    private String codigo_id_casual;
+    private String tipo_casual; // 'E'- esportivo 'C' - casual
+    private String codigo_id_casual;// busca por id
 
     // Construtor
     public BoneCasual(String nm, String mrc, double prc, String des, String tp_casu, String cod_id) {
@@ -23,11 +23,11 @@ public class BoneCasual extends Bone {
         this.tipo_casual = tipo_casual;
     }
 
-    public String getCodigo_id() {
+    public String getCodigo_id_casual() {
         return codigo_id_casual;
     }
 
-    public void setCodigo_id(String codigo_id_casual) {
+    public void setCodigo_id_casual(String codigo_id_casual) {
         this.codigo_id_casual = codigo_id_casual;
     }
 

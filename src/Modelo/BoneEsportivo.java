@@ -22,11 +22,11 @@ public class BoneEsportivo extends Bone {
         this.tipo_esportivo = tipo_esportivo;
     }
 
-    public String getCodigo_id() {
+    public String getCodigo_id_esportivo() {
         return codigo_id_esportivo;
     }
 
-    public void setCodigo_id(String codigo_id_esportivo) {
+    public void setCodigo_id_esportivo(String codigo_id_esportivo) {
         this.codigo_id_esportivo = codigo_id_esportivo;
     }
 
