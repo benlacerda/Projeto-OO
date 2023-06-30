@@ -1,75 +1,56 @@
 package Telas;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.*;
+import Controle.*;
 
-public class MenuPrincipal {
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
-    }
 
-    private static void createAndShowGUI() {
-        JFrame frame = new JFrame("Estoque de Bone");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(null); // Define o layout como null
 
-        // Botão de Cadastro Bone
-        JButton botaoCadastroB = new JButton("CadastroBone");
-        botaoCadastroB.setBounds(185, 200, 130, 30); // Define a posição e o tamanho do botão de cadastro
+public class MenuPrincipal implements ActionListener {
+	private static JFrame j = new JFrame("Estoque de Bone");
+	private static JLabel t = new JLabel("Menu Principal");
+	private static JButton CadastroB = new JButton("CadastroBone");
+	private static JButton CadastroF = new JButton("CadastroFilial");
+	private static JButton Listagem = new JButton("Listagem");
+	private static JButton Busca = new JButton("BuscaFilial");
+    private static DadosControl dados = new DadosControl();
 
-        // Botão de Cadastro Filial
-        JButton botaoCadastroF = new JButton("CadastroFilial");
-        botaoCadastroF.setBounds(50, 200, 130, 30);
-
-        // Botão de Listagem
-        JButton botaoListagem = new JButton("Listagem");
-        botaoListagem.setBounds(320, 200, 130, 30); // Define a posição e o tamanho do botão de listagem
-
-        // Texto
-        JLabel label = new JLabel("Estoque de Bone");
-        label.setFont(new Font("Arial", Font.BOLD, 20));
-        Dimension labelSize = label.getPreferredSize();
-        int labelX = 160;
-        int labelY = 100; // Define a posição vertical
-        label.setBounds(labelX, labelY, labelSize.width, labelSize.height);
-
-        frame.add(botaoCadastroF);
-        frame.add(botaoCadastroB);
-        frame.add(botaoListagem);
-        frame.add(label);
-
-        // Troca de telas
-        botaoCadastroB.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                Telacadastro telaCadastro = new Telacadastro();
-                telaCadastro.setVisible(true);
-            }
-        });
-
-        botaoCadastroF.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                Cadastrodefilial telaCadastroFilial = new Cadastrodefilial();
-                telaCadastroFilial.setVisible(true);
-            }
-        });
-
-        botaoListagem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                Telalistagem telaListagem = new Telalistagem();
-                telaListagem.setVisible(true);
-            }
-        });
-
-        frame.setSize(485, 295); // Define o tamanho da janela
-        frame.setVisible(true);
-    }
+	public MenuPrincipal() {
+		t.setFont(new Font("Arial", Font.BOLD, 20));
+		t.setBounds(160, 100, 150, 30);
+		CadastroB.setBounds(110, 200, 130, 30);
+		CadastroF.setBounds(110, 160, 130, 30);
+		Listagem.setBounds(250, 200, 130, 30);
+		Busca.setBounds(250, 160, 130, 30);
+		
+		j.setLayout(null);
+		
+		j.add(t);
+		j.add(CadastroB);
+		j.add(CadastroF);
+		j.add(Listagem);
+		j.add(Busca);
+		
+		j.setSize(485, 295);
+		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		j.setVisible(true);
+	}
+	
+	 public static void main(String[] args) {
+		MenuPrincipal menu = new MenuPrincipal();
+		
+		//CadastroB.addActionListener(menu);
+		//CadastroF.addActionListener(menu);
+		Listagem.addActionListener(menu);
+		//Busca.addActionListener(menu);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		Object src = e.getSource();
+		
+	    if(src == Listagem)
+	    	new ListagemView().mostrarDados(dados, 1);
+	}
 }

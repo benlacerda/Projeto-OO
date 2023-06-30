@@ -46,8 +46,8 @@ public class Dados {
     }
 
 
-    public void inserirEditarBoneEsportivo(BoneCasual bon_casual, int pos_casual) {
-            Dados.dBonesCasual[pos_casual] = bon_casual;
+    public void inserirEditarBoneEsportivo(BoneCasual bon_esportivo, int pos_esportivo) {
+            Dados.dBonesCasual[pos_esportivo] = bon_esportivo;
     }
 
     public Filial[] getdFiliais() {
