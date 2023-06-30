@@ -1,9 +1,8 @@
 package Controle;
 
-import Modelo.Bone;
-import Modelo.BoneCasual;
+import Modelo.*;
 
-public class BoneCasualControl extends DadosControl {
+public class BoneCasualControl {
     private BoneCasual[] bc;
     private int qntdbc;
 
@@ -12,10 +11,10 @@ public class BoneCasualControl extends DadosControl {
 		qntdbc = d.getQntd_boneCasuals();
 	}
 
-    public String[] getNome() {
+    public String[] getNomeBoneCasual() {
 		String[] s = new String[qntdbc];
 		for(int i = 0; i < qntdbc; i++) {
-			s[i] = bc[i].getNome_bone();
+			s[i] = bc[i].getnome();
 		}
 		
 		return s;
@@ -30,21 +29,21 @@ public class BoneCasualControl extends DadosControl {
 	}
 	
 	public String getNome(int i) {		
-		return bc[i].getNome_bone();
+		return bc[i].getnome();
 	}
 	
 	public String getMarca(int i) {
-		String mrc = String.valueOf(bc[i].getMarca_bone());
+		String mrc = String.valueOf(bc[i].getmarca());
 		return mrc;
 	}
 
     public String getPreco(int i){
-        String prc = String.valueOf(bc[i].getPreco_bone());
+        String prc = String.valueOf(bc[i].getpreco());
         return prc;
     }
 
     public String getDescricao(int i) {
-		String des = String.valueOf(bc[i].getDescricao_bone());
+		String des = String.valueOf(bc[i].getdescricao());
 		return des;
 	}
     public String getTipoCasual(int i) {
@@ -55,32 +54,5 @@ public class BoneCasualControl extends DadosControl {
 		String codCasual = String.valueOf(bc[i].getCodigo_id_casual());
 		return codCasual;
 	}
-
-	
-
-	
-    @Override
-    public Bone[] getLista() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getLista'");
-    }
-
-    @Override
-    public boolean inserir(String[] dados) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'inserir'");
-    }
-
-    @Override
-    public boolean editar(String[] dados) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'editar'");
-    }
-
-    @Override
-    public boolean remover(int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remover'");
-    }
    
 }

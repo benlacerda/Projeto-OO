@@ -1,9 +1,8 @@
 package Controle;
 
-import Modelo.Bone;
 import Modelo.Filial;
 
-public class FilialControl extends DadosControl{
+public class FilialControl{
 
     private Filial[] f;
     private int qntdf;
@@ -37,29 +36,4 @@ public class FilialControl extends DadosControl{
 		String cid = String.valueOf(f[i].getCidade_filial());
 		return cid;
 	}
-
-
-    @Override
-    public boolean inserir(String[] dados) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'inserir'");
-    }
-
-    @Override
-    public boolean editar(String[] dados) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'editar'");
-    }
-
-    @Override
-    public boolean remover(int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remover'");
-    }
-
-    @Override
-    public Bone[] getLista() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getLista'");
-    }
 }

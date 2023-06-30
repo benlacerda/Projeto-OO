@@ -6,14 +6,41 @@ public class BoneEsportivo extends Bone {
     private String tipo_esportivo;
     private String codigo_id_esportivo;
 
+    public BoneEsportivo(){
+        super();
+    }
+
     // Construtor
     public BoneEsportivo(String nm, String mrc, double prc, String des, String tp_esport, String cod_id) {
-        super(nm, mrc, prc, des);
         tipo_esportivo = tp_esport;
         codigo_id_esportivo = cod_id;
     }
 
     // Getters e Setters
+	public String getnome() {
+		return nome;
+	}
+
+	public void setnome(String nome) {
+		this.nome = nome;
+	}
+
+    public double getpreco() {
+        return preco;
+    }
+
+    public void setpreco(double preco) {
+        this.preco = preco;
+    }
+
+    public String getdescricao() {
+        return descricao;
+    }
+
+    public void setdescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
     public String getTipo_esportivo() {
         return tipo_esportivo;
     }
@@ -28,11 +55,5 @@ public class BoneEsportivo extends Bone {
 
     public void setCodigo_id_esportivo(String codigo_id_esportivo) {
         this.codigo_id_esportivo = codigo_id_esportivo;
-    }
-
-    // Representar o objeto como String
-    @Override
-    public String toString() {
-        return super.toString() + " " + tipo_esportivo;
     }
 }

@@ -10,12 +10,12 @@ public class Dados {
     private int qntd_filial = 3;
 
     static {
-        dBonesCasual[0] = new BoneCasual("Nome1", "Marca1", 10.0, "Descrição1", "Casual", "12");
-        dBonesCasual[1] = new BoneCasual("Nome2", "Marca2", 15.0, "Descrição2", "Casual", "15");
-        dBonesCasual[2] = new BoneCasual("Nome3", "Marca3", 20.0, "Descrição3", "Casual", "89");
-        dBonesEsportivos[4] = new BoneEsportivo("Nome1", "Marca1", 10.0, "Descrição1", "Esportivo", "65");
-        dBonesEsportivos[5] = new BoneEsportivo("Nome2", "Marca2", 15.0, "Descrição2", "Esportivo", "45");
-        dBonesEsportivos[6] = new BoneEsportivo("Nome3", "Marca3", 20.0, "Descrição3", "Esportivo", "96");
+        dBonesCasual[0] = new BoneCasual("BoneC1", "Marca1", 10.0, "Descrição1", "Casual", "12");
+        dBonesCasual[1] = new BoneCasual("BoneC2", "Marca2", 15.0, "Descrição2", "Casual", "15");
+        dBonesCasual[2] = new BoneCasual("BoneC3", "Marca3", 20.0, "Descrição3", "Casual", "89");
+        dBonesEsportivos[4] = new BoneEsportivo("BoneE1", "Marca1", 10.0, "Descrição1", "Esportivo", "65");
+        dBonesEsportivos[5] = new BoneEsportivo("BoneE2", "Marca2", 15.0, "Descrição2", "Esportivo", "45");
+        dBonesEsportivos[6] = new BoneEsportivo("BoneE3", "Marca3", 20.0, "Descrição3", "Esportivo", "96");
 
         dFiliais[0] = new Filial("Filial1", "Cidade1");
         dFiliais[1] = new Filial("Filial2", "Cidade2");
@@ -41,15 +41,9 @@ public class Dados {
     public void setQntd_boneEsportivo(int qntd_boneEsportivo) {
 		this.qntd_boneEsportivo = qntd_boneEsportivo;
 	}
-    public void inserirEditarBoneCasual(BoneCasual bon_casual, int pos_casual) {
-        Dados.dBonesCasual[pos_casual] = bon_casual;
-    }
-
-
-    public void inserirEditarBoneEsportivo(BoneCasual bon_esportivo, int pos_esportivo) {
-            Dados.dBonesCasual[pos_esportivo] = bon_esportivo;
-    }
-
+    public void inserirEditarBoneCasual(BoneCasual bon_casual, int pos) {
+		Dados.dBonesCasual[pos] = bon_casual;
+	}
     public Filial[] getdFiliais() {
         return dFiliais;
     }
@@ -64,5 +58,7 @@ public class Dados {
     }
     public Bone[] getListaBones() {
         return null;
+    }
+    public void inserirEditarBoneCasual(BoneCasual bc, int parseInt) {
     }
 }

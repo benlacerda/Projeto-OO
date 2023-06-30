@@ -6,15 +6,57 @@ public class BoneCasual extends Bone {
     private String tipo_casual; // 'E'- esportivo 'C' - casual
     private String codigo_id_casual;// busca por id
 
+    public BoneCasual(){
+        super();
+    }
+
+    // Sobrecarga
+    public BoneCasual(String nm, String mrc, String des, String tp_casu, String cod_id) {
+        nome = nm;
+        marca = mrc;
+        descricao = des;
+        tipo_casual = tp_casu;
+        codigo_id_casual = cod_id;
+    }
+
+
     // Construtor
     public BoneCasual(String nm, String mrc, double prc, String des, String tp_casu, String cod_id) {
-        super(nm, mrc, prc, des);
+        nome = nm;
+        marca = mrc;
+        preco = prc;
+        descricao = des;
         tipo_casual = tp_casu;
         codigo_id_casual = cod_id;
     }
 
 
     // Getters e Setters
+
+    public String getnome() {
+		return nome;
+	}
+
+	public void setnome(String nome) {
+		this.nome = nome;
+	}
+
+    public double getpreco() {
+        return preco;
+    }
+
+    public void setpreco(double preco) {
+        this.preco = preco;
+    }
+
+    public String getdescricao() {
+        return descricao;
+    }
+
+    public void setdescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
     public String getTipo_casual() {
         return tipo_casual;
     }
@@ -31,9 +73,4 @@ public class BoneCasual extends Bone {
         this.codigo_id_casual = codigo_id_casual;
     }
 
-    // Representar o objeto como String
-    @Override
-    public String toString() {
-        return super.toString() + " " + tipo_casual;
-    }
 }

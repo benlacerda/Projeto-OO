@@ -9,7 +9,7 @@ import Modelo.*;
  * Classe de controle da classe Dados.
  * Possui os métodos responsáveis pelo CRUD das classes.
  */
-public abstract class DadosControl {
+public class DadosControl {
 
     private Dados d = new Dados();
 
@@ -58,14 +58,14 @@ public abstract class DadosControl {
 
         // Buscar nos bones casuais
         for (BoneCasual boneCasual : bonesCasual) {
-            if (boneCasual != null && boneCasual.getNome_bone().equalsIgnoreCase(nome_bone)) {
+            if (boneCasual != null && boneCasual.getnome().equalsIgnoreCase(nome_bone)) {
                 resultados.add(boneCasual);
             }
         }
 
         // Buscar nos bones esportivos
         for (BoneEsportivo boneEsportivo : bonesEsportivos) {
-            if (boneEsportivo != null && boneEsportivo.getNome_bone().equalsIgnoreCase(nome_bone)) {
+            if (boneEsportivo != null && boneEsportivo.getnome().equalsIgnoreCase(nome_bone)) {
                 resultados.add(boneEsportivo);
             }
         }
@@ -77,77 +77,68 @@ public abstract class DadosControl {
         return resultadoArray;
     }
 
-    public void inserirBoneCasual(String[] dadosBoneCasual) {
-        BoneCasual boneCasual = new BoneCasual(dadosBoneCasual[0], dadosBoneCasual[1],
-                Double.parseDouble(dadosBoneCasual[2]), dadosBoneCasual[3], dadosBoneCasual[4], dadosBoneCasual[5]);
-        BoneCasual[] dBonesCasuals = this.d.getdBonesCasuals();
-        dBonesCasuals[this.d.getQntd_boneCasuals()] = boneCasual;
-        this.d.setQntd_boneCasual(this.d.getQntd_boneCasuals() + 1);
-    }
+    public boolean inserirEditarBoneCasual(String[] dadosBoneCasual) {
+	    try {
+	        BoneCasual bc = new BoneCasual(dadosBoneCasual[1], dadosBoneCasual[2],
+	                Double.parseDouble(dadosBoneCasual[3]), dadosBoneCasual[4], dadosBoneCasual[5], dadosBoneCasual[6]);
+	        d.inserirEditarBoneCasual(bc, Integer.parseInt(dadosBoneCasual[0]));
+	        return true; // Inserção bem-sucedida
+	    } catch (Exception e) {
+	        return false; // Ocorreu uma exceção durante a inserção
+	    }
+	}
 
-    public void inserirBoneEsportivo(String[] dadosBoneEsportivo) {
-        BoneEsportivo boneEsportivo = new BoneEsportivo(dadosBoneEsportivo[0], dadosBoneEsportivo[1],
-                Double.parseDouble(dadosBoneEsportivo[2]), dadosBoneEsportivo[3], dadosBoneEsportivo[4],
-                dadosBoneEsportivo[5]);
-        BoneEsportivo[] dBonesEsportivos = this.d.getdBonesEsportivos();
-        dBonesEsportivos[this.d.getQntd_boneEsportivo()] = boneEsportivo;
-        this.d.setQntd_boneEsportivo(this.d.getQntd_boneEsportivo() + 1);
-    }
+    public boolean inserirEditarBoneEsportivo(String[] dadosBoneEsportivo) {
+	    try {
+	        BoneEsportivo be = new BoneEsportivo(dadosBoneEsportivo[1], dadosBoneEsportivo[2],
+	                Double.parseDouble(dadosBoneEsportivo[3]), dadosBoneEsportivo[4], dadosBoneEsportivo[5], dadosBoneEsportivo[6]);
+	        d.inserirEditarBoneEsportivo(be, Integer.parseInt(dadosBoneEsportivo[0]));
+	        return true; // Inserção bem-sucedida
+	    } catch (Exception e) {
+	        return false; // Ocorreu uma exceção durante a inserção
+	    }
+	}
 
-    public void editarBoneEsportivo(int posicao, String[] dadosBoneEsportivo) {
-        BoneEsportivo boneEsportivo = new BoneEsportivo(dadosBoneEsportivo[0], dadosBoneEsportivo[1],
-                Double.parseDouble(dadosBoneEsportivo[2]), dadosBoneEsportivo[3], dadosBoneEsportivo[4],
-                dadosBoneEsportivo[5]);
-        BoneEsportivo[] dBonesEsportivos = this.d.getdBonesEsportivos();
-        dBonesEsportivos[posicao] = boneEsportivo;
-    }
 
-    public void editarBoneCasual(int posicao, String[] dadosBoneCasual) {
-        BoneCasual boneCasual = new BoneCasual(dadosBoneCasual[0], dadosBoneCasual[1],
-                Double.parseDouble(dadosBoneCasual[2]), dadosBoneCasual[3], dadosBoneCasual[4], dadosBoneCasual[5]);
-        BoneCasual[] dBonesCasuais = this.d.getdBonesCasuals();
-        dBonesCasuais[posicao] = boneCasual;
-    }
+    public boolean temoverBoneCasual(int posicao) {
+        try{
+            BoneCasual[] dBonesCasuais = this.d.getdBonesCasuals();
+            int qntdBonesCasuais = this.d.getQntd_boneCasuals();
 
-    public void deletarBoneCasual(int posicao) {
-        BoneCasual[] dBonesCasuais = this.d.getdBonesCasuals();
-        int qntdBonesCasuais = this.d.getQntd_boneCasuals();
+            if (posicao >= 0 && posicao < qntdBonesCasuais) {
+                for (int i = posicao; i < qntdBonesCasuais - 1; i++) {
+                    dBonesCasuais[i] = dBonesCasuais[i + 1];
+                }
 
-        if (posicao >= 0 && posicao < qntdBonesCasuais) {
-            for (int i = posicao; i < qntdBonesCasuais - 1; i++) {
-                dBonesCasuais[i] = dBonesCasuais[i + 1];
+                dBonesCasuais[qntdBonesCasuais - 1] = null;
+                this.d.setQntd_boneCasual(qntdBonesCasuais - 1);
             }
-
-            dBonesCasuais[qntdBonesCasuais - 1] = null;
-            this.d.setQntd_boneCasual(qntdBonesCasuais - 1);
+            return true;
+        }catch (Exception e) {
+	        return false; // Ocorreu uma exceção durante a inserção
         }
     }
 
     /**
      * @param posicao
      */
-    public void deletarBoneEsportivo(int posicao) {
-        BoneEsportivo[] dBonesEsportivos = this.d.getdBonesEsportivos();
-        int qntdBonesEsportivos = this.d.getQntd_boneEsportivo();
-        
-        if (posicao >= 0 && posicao < qntdBonesEsportivos) {
-            for (int i = posicao; i < qntdBonesEsportivos - 1; i++) {
-                dBonesEsportivos[i] = dBonesEsportivos[i + 1];
-            }
+    public boolean removerBoneEsportivo(int posicao) {
+        try{
+            BoneEsportivo[] dBonesEsportivos = this.d.getdBonesEsportivos();
+            int qntdBonesEsportivos = this.d.getQntd_boneEsportivo();
             
-            dBonesEsportivos[qntdBonesEsportivos - 1] = null;
-            this.d.setQntd_boneEsportivo(qntdBonesEsportivos - 1);
+            if (posicao >= 0 && posicao < qntdBonesEsportivos) {
+                for (int i = posicao; i < qntdBonesEsportivos - 1; i++) {
+                    dBonesEsportivos[i] = dBonesEsportivos[i + 1];
+                }
+                
+                dBonesEsportivos[qntdBonesEsportivos - 1] = null;
+                this.d.setQntd_boneEsportivo(qntdBonesEsportivos - 1);
+            }
+            return true;
+        }catch (Exception e) {
+	        return false; // Ocorreu uma exceção durante a inserção
         }
     }
 
-    protected int getQtdeLista(Bone[] lista) {
-        int count = -1;
-        for (int i = 0; i < lista.length; i++) {
-            if (lista[i] == null) {
-                break;
-            }
-            count = i + 1;
-        }
-        return count;
-    }
 }
