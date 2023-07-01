@@ -158,7 +158,7 @@ public class TelaDetalheBone implements ActionListener {
 			boolean res = false;
 
 			if (opcao == 3) {// exclui aluno
-				res = dados.temoverBoneCasual(posicao);
+				res = dados.removerBoneCasual(posicao);
 				if (res)
 					mensagemSucessoExclusao();
 				else

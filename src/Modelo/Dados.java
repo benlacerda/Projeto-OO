@@ -56,9 +56,11 @@ public class Dados {
     public void setQntd_filial(int qntd_filial) {
 		this.qntd_filial = qntd_filial;
 	}
-    public void inserirEditaFilial(Filial[] f) {
-        Dados.dFiliais = f;
+    
+    public void inserirEditaFilial(Filial f, int pos) {
+        Dados.dFiliais[pos] = f;
     }
+
     public Bone[] getListaBones() {
         return null;
     }

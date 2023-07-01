@@ -100,7 +100,7 @@ public class DadosControl {
 	}
 
 
-    public boolean temoverBoneCasual(int posicao) {
+    public boolean removerBoneCasual(int posicao) {
         try{
             BoneCasual[] dBonesCasuais = this.d.getdBonesCasuals();
             int qntdBonesCasuais = this.d.getQntd_boneCasuals();
@@ -134,6 +134,25 @@ public class DadosControl {
                 
                 dBonesEsportivos[qntdBonesEsportivos - 1] = null;
                 this.d.setQntd_boneEsportivo(qntdBonesEsportivos - 1);
+            }
+            return true;
+        }catch (Exception e) {
+	        return false; // Ocorreu uma exceção durante a inserção
+        }
+    }
+
+    public boolean removerFilial(int posicao) {
+        try{
+            Filial[] dFiliais = this.d.getdFiliais();
+            int qntdFiliais = this.d.getQntd_filial();
+
+            if (posicao >= 0 && posicao < qntdFiliais) {
+                for (int i = posicao; i < qntdFiliais - 1; i++) {
+                    dFiliais[i] = dFiliais[i + 1];
+                }
+
+                dFiliais[qntdFiliais - 1] = null;
+                this.d.setQntd_boneCasual(qntdFiliais - 1);
             }
             return true;
         }catch (Exception e) {

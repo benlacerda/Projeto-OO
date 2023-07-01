@@ -13,7 +13,7 @@ public class MenuPrincipal implements ActionListener {
 	private static JFrame j = new JFrame("Estoque de Bone");
 	private static JLabel t = new JLabel("Menu Principal");
 	private static JButton CadastroB = new JButton("CadastroBone");
-	private static JButton CadastroF = new JButton("CadastroFilial");
+	private static JButton Filial = new JButton("Filial");
 	private static JButton ListagemBoneC = new JButton("Listagem BCasual");
 	private static JButton Busca = new JButton("BuscaFilial");
 	private static JButton ListagemBoneE = new JButton("Listagem BEsportivo");
@@ -23,7 +23,7 @@ public class MenuPrincipal implements ActionListener {
 		t.setFont(new Font("Arial", Font.BOLD, 20));
 		t.setBounds(160, 100, 150, 30);
 		CadastroB.setBounds(110, 200, 130, 30);
-		CadastroF.setBounds(110, 160, 130, 30);
+		Filial.setBounds(110, 160, 130, 30);
 		ListagemBoneC.setBounds(250, 200, 130, 30);
 		Busca.setBounds(250, 160, 130, 30);
 		ListagemBoneE.setBounds(250, 250, 130, 30);
@@ -32,7 +32,7 @@ public class MenuPrincipal implements ActionListener {
 		
 		j.add(t);
 		j.add(CadastroB);
-		j.add(CadastroF);
+		j.add(Filial);
 		j.add(ListagemBoneC);
 		j.add(Busca);
 		j.add(ListagemBoneE);
@@ -46,7 +46,7 @@ public class MenuPrincipal implements ActionListener {
 		MenuPrincipal menu = new MenuPrincipal();
 		
 		CadastroB.addActionListener(menu);
-		CadastroF.addActionListener(menu);
+		Filial.addActionListener(menu);
 		ListagemBoneC.addActionListener(menu);
 		Busca.addActionListener(menu);
 		ListagemBoneE.addActionListener(menu);
@@ -61,5 +61,8 @@ public class MenuPrincipal implements ActionListener {
 
 		if(src == ListagemBoneE)
 	    	new ListagemView().mostrarDados(dados, 2);
+		
+		if(src == Filial)
+	    	new ListagemFilial().mostrarDados(dados, 3);
 	}
 }
