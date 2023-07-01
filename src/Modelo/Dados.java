@@ -44,6 +44,9 @@ public class Dados {
     public void inserirEditarBoneCasual(BoneCasual bon_casual, int pos) {
 		Dados.dBonesCasual[pos] = bon_casual;
 	}
+     public void inserirEditarBoneEsportivo(BoneEsportivo bon_esportivo, int pos) {
+		Dados.dBonesEsportivos[pos] = bon_esportivo;
+	}
     public Filial[] getdFiliais() {
         return dFiliais;
     }
@@ -58,7 +61,5 @@ public class Dados {
     }
     public Bone[] getListaBones() {
         return null;
-    }
-    public void inserirEditarBoneCasual(BoneCasual bc, int parseInt) {
     }
 }
