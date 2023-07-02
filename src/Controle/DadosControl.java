@@ -78,23 +78,29 @@ public class DadosControl {
     }
 
     public boolean inserirEditarBoneCasual(String[] dadosBoneCasual) {
-	    try {
-	        BoneCasual bc = new BoneCasual(dadosBoneCasual[1], dadosBoneCasual[2],
-	                Double.parseDouble(dadosBoneCasual[3]), dadosBoneCasual[4], dadosBoneCasual[5], dadosBoneCasual[6]);
-	        d.inserirEditarBoneCasual(bc, Integer.parseInt(dadosBoneCasual[0]));
-	        return true; // Inserção bem-sucedida
-	    } catch (Exception e) {
-	        return false; // Ocorreu uma exceção durante a inserção
-	    }
-	}
+        BoneCasual bc = new BoneCasual(dadosBoneCasual[1], dadosBoneCasual[2],
+                Double.parseDouble(dadosBoneCasual[3]), dadosBoneCasual[4], dadosBoneCasual[5], dadosBoneCasual[6]);
+        d.inserirEditarBoneCasual(bc, Integer.parseInt(dadosBoneCasual[0]));
+        BoneCasual[] bonesCasual = d.getdBonesCasuals();
+        for (int i = 0; i < bonesCasual.length; i++) {
+            if (bonesCasual[i] == bc) {
+                System.out.println("Inseriu ou editou o bone casual com sucesso!");
+                return true;
+            }
+        }
+        System.out.println("Falha ao inserir ou editar o bone casual.");
+        return false;
+    }
 
     public boolean inserirEditarBoneEsportivo(String[] dadosBoneEsportivo) {
 	    try {
 	        BoneEsportivo be = new BoneEsportivo(dadosBoneEsportivo[1], dadosBoneEsportivo[2],
 	                Double.parseDouble(dadosBoneEsportivo[3]), dadosBoneEsportivo[4], dadosBoneEsportivo[5], dadosBoneEsportivo[6]);
 	        d.inserirEditarBoneEsportivo(be, Integer.parseInt(dadosBoneEsportivo[0]));
+            System.out.print("Inseriu ou editou com sucesso!");
 	        return true; // Inserção bem-sucedida
 	    } catch (Exception e) {
+            System.out.print("Inseriu ou editou com falha!");
 	        return false; // Ocorreu uma exceção durante a inserção
 	    }
 	}
@@ -103,8 +109,10 @@ public class DadosControl {
 	    try {
 	        Filial fil = new Filial(dadosfilial[1], dadosfilial[2]);
 	        d.inserirEditaFilial(fil, Integer.parseInt(dadosfilial[0]));
+            System.out.print("Inseriu ou editou com sucesso! dados control");
 	        return true; // Inserção bem-sucedida
 	    } catch (Exception e) {
+            System.out.print("Inseriu ou editou com falha! dados control");
 	        return false; // Ocorreu uma exceção durante a inserção
 	    }
 	}

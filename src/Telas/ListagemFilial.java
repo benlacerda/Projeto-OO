@@ -66,7 +66,7 @@ public class ListagemFilial implements ActionListener, ListSelectionListener {
 		
 		//Cadastro de nova filial
 		if(src == cadastroFilial)
-			new TelaDetalheFilial().inserirEditarFilial(1, dados, null, 0);;
+			new TelaDetalheFilial().inserirEditarFilials(1, dados, null, 0);
 
 
 		// Atualiza a lista de nomes das filiais mostrada no JList
