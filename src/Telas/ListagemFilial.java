@@ -71,7 +71,7 @@ public class ListagemFilial implements ActionListener, ListSelectionListener {
 
 		// Atualiza a lista de nomes das filiais mostrada no JList
 		if(src == refreshFilial) {
-			listaFiliaisCadastradas.setListData(new BoneCasualControl(dados).getNomeBoneCasual());			
+			listaFiliaisCadastradas.setListData(new FilialControl(dados).getNomeFilial());			
 			listaFiliaisCadastradas.updateUI();
 		}
 
@@ -82,8 +82,7 @@ public class ListagemFilial implements ActionListener, ListSelectionListener {
         Object src = e.getSource();
 
 		if(e.getValueIsAdjusting() && src == listaFiliaisCadastradas) {
-			new TelaDetalheFilial().inserirEditarFilial(2, dados, null, 0);
-					listaFiliaisCadastradas.getSelectedIndex();
+			new TelaDetalheFilial().inserirEditarFilials(2, dados, this, listaFiliaisCadastradas.getSelectedIndex());
 		}
     }
 }

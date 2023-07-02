@@ -99,6 +99,16 @@ public class DadosControl {
 	    }
 	}
 
+    public boolean inserirEditarFilial(String[] dadosfilial) {
+	    try {
+	        Filial fil = new Filial(dadosfilial[1], dadosfilial[2]);
+	        d.inserirEditaFilial(fil, Integer.parseInt(dadosfilial[0]));
+	        return true; // Inserção bem-sucedida
+	    } catch (Exception e) {
+	        return false; // Ocorreu uma exceção durante a inserção
+	    }
+	}
+
 
     public boolean removerBoneCasual(int posicao) {
         try{

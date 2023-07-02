@@ -25,7 +25,7 @@ public class TelaDetalheFilial implements ActionListener {
 	private String s;
 
 
-    public void inserirEditarFilial (int op, DadosControl d, ListagemView p, int pos) {
+    public void inserirEditarFilials(int op, DadosControl d, ListagemFilial listagemFilial, int pos) {
 
 		opcao = op;
 		posicao = pos;
@@ -65,6 +65,7 @@ public class TelaDetalheFilial implements ActionListener {
 		this.janela.add(valorNome);
 		this.janela.add(labelCidade);
 		this.janela.add(valorCidade);
+        this.janela.add(botaoSalvar);
 
 		this.janela.setLayout(null);
 
@@ -144,6 +145,9 @@ public class TelaDetalheFilial implements ActionListener {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro ao excluir o dado.\n "
                     + "Verifique se o professor está responsável\n" + "por alguma disciplina. Se sim, substitua\n "
                     + "o professor e tente novamente.", null, JOptionPane.ERROR_MESSAGE);
+        }
+
+        public void inserirEditarFilial(int i, DadosControl dados2, ListagemFilial listagemFilial, int selectedIndex) {
         }
 
 }
