@@ -142,6 +142,10 @@ public class TelaDetalheBone implements ActionListener {
 				novoDado[5] = valorTipo.getText();
 				novoDado[6] = valorCodigo.getText();
 
+				if (opcao == 1) {
+					res = dados.inserirEditarBoneCasual(novoDado);
+				}
+
 				if (res) {
 					mensagemSucessoCadastro();
 				} else

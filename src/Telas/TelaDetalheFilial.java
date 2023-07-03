@@ -77,43 +77,48 @@ public class TelaDetalheFilial implements ActionListener {
 	}
 
     public void actionPerformed(ActionEvent e) {
-            Object src = e.getSource();
-            if (src == botaoSalvar) {
-                try {
-                    boolean res;
-                    res = true;
-                    if (opcao == 1) // cadastro de Filial
-                        novoDado[0] = Integer.toString(dados.getQntd_filial());
-                    else // edicao de dado existente
-                        novoDado[0] = Integer.toString(posicao);
+		Object src = e.getSource();
+		
+		if(src == botaoSalvar) {
+            
+			try {
+                boolean res;
+				novoDado[1] = valorNome.getText();
+				novoDado[2] = valorCidade.getText();
+				if(opcao == 1) { //Cadastro de nova Filial
+					novoDado[0] = Integer.toString(dados.getQntd_filial());
+					res = dados.EditarFilial(novoDado); //Caso queira cadastrar um t�nis para testar, use: imagens/dunk-brazil.png como diret�rio.
+				}
+				else { //Edicao de filial
+					novoDado[0] = Integer.toString(posicao);
+                    res = dados.EditarFilial(novoDado);
+				}
+												
+				if(res) {
+					mensagemSucessoCadastro();
+				} else mensagemErroCadastro();
+			}
+			catch (NullPointerException exc1) {
+				exc1.printStackTrace();
+				mensagemErroCadastro();
+			} catch (NumberFormatException exc2) {
+				exc2.printStackTrace();
+				mensagemErroCadastro();
+			}
+		}
+		
+		
+		if(src == botaoExcluir) { 
+			boolean res = false;
+		 
+		//exclui sapato
+			res = dados.removerFilial(posicao);
+			if (res) mensagemSucessoExclusao(); 
+			else mensagemErroExclusaoAluno();
+		}
+		
+	}
 
-                    novoDado[1] = valorNome.getText();
-                    novoDado[2] = valorCidade.getText();
-                    if (res) {
-                        mensagemSucessoCadastro();
-                    } else
-                        mensagemErroCadastro();
-
-                } catch (NullPointerException exc1) {
-                    mensagemErroCadastro();
-                } catch (NumberFormatException exc2) {
-                    mensagemErroCadastro();
-                }
-            }
-
-            if (src == botaoExcluir) {
-                boolean res = false;
-
-                if (opcao == 2) {// exclui aluno
-                    res = dados.removerFilial(posicao);
-                    if (res)
-                        mensagemSucessoExclusao();
-                    else
-                        mensagemErroExclusaoAluno();
-                }
-
-            }
-        }
 
     public void mensagemSucessoExclusao() {
             JOptionPane.showMessageDialog(null, "Os dados foram excluídos com sucesso!", null,
@@ -151,3 +156,6 @@ public class TelaDetalheFilial implements ActionListener {
         }
 
 }
+    
+
+

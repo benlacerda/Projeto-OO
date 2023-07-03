@@ -12,6 +12,7 @@ import Modelo.*;
 public class DadosControl {
 
     private Dados d = new Dados();
+    private int qntdFiliais;
 
     /**
      * Método que retorna os dados.
@@ -49,6 +50,15 @@ public class DadosControl {
     public int getQntd_filial() {
         return this.d.getQntd_filial();
     }
+
+    public int getQtdFilial() {
+		return this.qntdFiliais;
+	}
+
+	public void setQtdFilial(int qtd) {
+		this.qntdFiliais = qtd;
+	}
+
 
     public Bone[] busca_nome(String nome_bone) {
         BoneCasual[] bonesCasual = getBoneCasuals();
@@ -105,17 +115,22 @@ public class DadosControl {
 	    }
 	}
 
-    public boolean inserirEditarFilial(String[] dadosfilial) {
-	    try {
-	        Filial fil = new Filial(dadosfilial[1], dadosfilial[2]);
-	        d.inserirEditaFilial(fil, Integer.parseInt(dadosfilial[0]));
-            System.out.print("Inseriu ou editou com sucesso! dados control");
-	        return true; // Inserção bem-sucedida
-	    } catch (Exception e) {
-            System.out.print("Inseriu ou editou com falha! dados control");
-	        return false; // Ocorreu uma exceção durante a inserção
-	    }
+    public boolean EditarFilial(String[] dadosfilial) {
+        Filial fil = new Filial(dadosfilial[1], dadosfilial[2]);
+        d.inserirEditaFilial(fil, Integer.parseInt(dadosfilial[0]));
+        System.out.print("Inseriu com sucesso! dados control");
+        return true; // Inserção bem-sucedida
+	} 
+
+    public boolean inserir(String[] dadosfilial) {
+		if(EditarFilial(dadosfilial)) {
+			setQtdFilial(getQtdFilial()+1);
+            System.out.print("Editou com sucesso! dados control");
+			return true;
+		}
+		return false;
 	}
+
 
 
     public boolean removerBoneCasual(int posicao) {
