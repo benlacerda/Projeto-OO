@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 
 import Controle.DadosControl;
 
-public class TelaDetalheBone implements ActionListener {
+public class DetalheBEsportivo implements ActionListener {
 	private JFrame janela;
 	private JLabel labelNome = new JLabel("Nome: ");
 	private JTextField valorNome;
@@ -33,33 +33,20 @@ public class TelaDetalheBone implements ActionListener {
 	private int opcao;
 	private String s;
 
-	public void inserirEditar(int op, DadosControl d, ListagemView p, int pos) {
+	public void inserirEditarBEsportivo(int op, DadosControl d, ListagemBEspostivo listagemBEspostivo, int pos) {
 
 		opcao = op;
 		posicao = pos;
 		dados = d;
 
-		if (op == 1)
-			s = "Cadastro de Boné Casual";
 		if (op == 2)
 			s = "Cadastro de Boné Esportivo";
-		if (op == 3)
-			s = "Detalhe de Boné Casual";
 		if (op == 4)
 			s = "Detalhe de Boné Esportivo";
 
 		janela = new JFrame(s);
 
-		// Preenche dados com dados do aluno clicado
-		if (op == 3) {
-			valorNome = new JTextField(dados.getBoneCasuals()[pos].getnome(), 200);
-			valorMarca = new JTextField(dados.getBoneCasuals()[pos].getmarca(), 200);
-			valorPreco = new JTextField(String.valueOf(dados.getBoneCasuals()[pos].getpreco()), 200);
-			valorDescricao = new JTextField(dados.getBoneCasuals()[pos].getdescricao(), 200);
-			valorTipo = new JTextField(String.valueOf(dados.getBoneCasuals()[pos].getTipo_casual()), 200);
-			valorCodigo = new JTextField(String.valueOf(dados.getBoneCasuals()[pos].getCodigo_id_casual()), 3);
-
-		} else if (op == 4) { // Preenche dados com dados do professor clicado
+	    if (op == 4) { // Preenche dados com dados do professor clicado
 			valorNome = new JTextField(dados.getBoneEsportivos()[pos].getnome(), 200);
 			valorMarca = new JTextField(String.valueOf(dados.getBoneEsportivos()[pos].getmarca()), 200);
 			valorPreco = new JTextField(String.valueOf(dados.getBoneEsportivos()[pos].getpreco()), 200);
@@ -93,7 +80,7 @@ public class TelaDetalheBone implements ActionListener {
 		valorCodigo.setBounds(180, 170, 28, 25);
 
 		// Coloca botões de excluir e salvar
-		if (op == 3 || op == 4) {
+		if ( op == 4) {
 			botaoSalvar.setBounds(120, 220, 115, 30);
 			botaoExcluir.setBounds(245, 220, 115, 30);
 			this.janela.add(botaoExcluir);
@@ -128,12 +115,10 @@ public class TelaDetalheBone implements ActionListener {
 			try {
 				boolean res;
 				res = true;
-				if (opcao == 1) // cadastro de boné casual
-					novoDado[0] = Integer.toString(dados.getQntd_boneCasuals());
-					res = dados.EditarBoneCasual(novoDado); //Caso queira cadastrar um t�nis para testar, use: imagens/dunk-brazil.png como diret�rio.
+				if (opcao == 2) // cadastro de boné casual
+					novoDado[0] = Integer.toString(dados.getQntd_boneEsportivo());
 				else // edicao de dado existente
 					novoDado[0] = Integer.toString(posicao);
-					res = dados.EditarBoneCasual(novoDado);
 
 				novoDado[1] = valorNome.getText();
 				novoDado[2] = valorMarca.getText();
@@ -141,6 +126,10 @@ public class TelaDetalheBone implements ActionListener {
 				novoDado[4] = valorDescricao.getText();
 				novoDado[5] = valorTipo.getText();
 				novoDado[6] = valorCodigo.getText();
+
+				if (opcao == 1) {
+					res = dados.inserirEditarBoneCasual(novoDado);
+				}
 
 				if (res) {
 					mensagemSucessoCadastro();
@@ -156,14 +145,6 @@ public class TelaDetalheBone implements ActionListener {
 
 		if (src == botaoExcluir) {
 			boolean res = false;
-
-			if (opcao == 3) {// exclui aluno
-				res = dados.removerBoneCasual(posicao);
-				if (res)
-					mensagemSucessoExclusao();
-				else
-					mensagemErroExclusaoAluno();
-			}
 
 			if (opcao == 4) { // exclui professor
 				res = dados.removerBoneEsportivo(posicao);
@@ -190,15 +171,21 @@ public class TelaDetalheBone implements ActionListener {
 
 	public void mensagemErroCadastro() {
 		JOptionPane.showMessageDialog(null,
-				"ERRO AO SALVAR OS DADOS!\n ",
+				"ERRO AO SALVAR OS DADOS!\n " + "Pode ter ocorrido um dos dois erros a seguir:  \n"
+						+ "1. Nem todos os campos foram preenchidos \n"
+						+ "2. CPF, identidade, DDD e telefone não contêm apenas números",
 				null, JOptionPane.ERROR_MESSAGE);
 	}
 
 	public void mensagemErroExclusaoAluno() {
-		JOptionPane.showMessageDialog(null, "Ocorreu um erro ao excluir o dado.\n ", null, JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Ocorreu um erro ao excluir o dado.\n "
+				+ "Verifique se o aluno está matriculado\n" + "em alguma disciplina. Se sim, cancele\n "
+				+ "a matrícula e tente novamente.", null, JOptionPane.ERROR_MESSAGE);
 	}
 
 	public void mensagemErroExclusaoProf() {
-		JOptionPane.showMessageDialog(null, "Ocorreu um erro ao excluir o dado.\n ", null, JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Ocorreu um erro ao excluir o dado.\n "
+				+ "Verifique se o professor está responsável\n" + "por alguma disciplina. Se sim, substitua\n "
+				+ "o professor e tente novamente.", null, JOptionPane.ERROR_MESSAGE);
 	}
 }

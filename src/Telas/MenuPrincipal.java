@@ -60,9 +60,10 @@ public class MenuPrincipal implements ActionListener {
 
 
 		if(src == ListagemBoneE)
-	    	new ListagemView().mostrarDados(dados, 2);
+	    	new ListagemBEspostivo().mostrarDados(dados, 2);
 		
 		if(src == Filial)
 	    	new ListagemFilial().mostrarDados(dados, 3);
+			
 	}
 }

@@ -13,6 +13,9 @@ public class DadosControl {
 
     private Dados d = new Dados();
     private int qntdFiliais;
+    private int qntdBesportivo;
+    private int qntdBcasual;
+
 
     /**
      * Método que retorna os dados.
@@ -32,16 +35,25 @@ public class DadosControl {
     }
 
     public int getQntd_boneCasuals() {
-        return this.d.getQntd_boneCasuals();
+        return this.getQntd_boneCasuals();
     }
+
+    public void setQtdBCasual(int qtd) {
+		this.qntdBcasual = qtd;
+	}
 
     public BoneEsportivo[] getBoneEsportivos() {
         return this.d.getdBonesEsportivos();
     }
 
     public int getQntd_boneEsportivo() {
-        return this.d.getQntd_boneEsportivo();
+        return this.getQntd_boneEsportivo();
     }
+
+    public void setQtdBEsportivo(int qtd) {
+		this.qntdBesportivo = qtd;
+	}
+
 
     public Filial[] getFiliais() {
         return this.d.getdFiliais();
@@ -87,7 +99,7 @@ public class DadosControl {
         return resultadoArray;
     }
 
-    public boolean inserirEditarBoneCasual(String[] dadosBoneCasual) {
+    public boolean EditarBoneCasual(String[] dadosBoneCasual) {
         BoneCasual bc = new BoneCasual(dadosBoneCasual[1], dadosBoneCasual[2],
                 Double.parseDouble(dadosBoneCasual[3]), dadosBoneCasual[4], dadosBoneCasual[5], dadosBoneCasual[6]);
         d.inserirEditarBoneCasual(bc, Integer.parseInt(dadosBoneCasual[0]));
@@ -102,7 +114,17 @@ public class DadosControl {
         return false;
     }
 
-    public boolean inserirEditarBoneEsportivo(String[] dadosBoneEsportivo) {
+    public boolean inserirBCasual(String[] dadosBoneCasual) {
+		if(EditarBoneCasual(dadosBoneCasual)) {
+			setQtdBCasual(getQntd_boneEsportivo()+1);
+            System.out.print("Editou com sucesso! dados control");
+			return true;
+		}
+		return false;
+	}
+
+    
+    public boolean EditarBoneEsportivo(String[] dadosBoneEsportivo) {
 	    try {
 	        BoneEsportivo be = new BoneEsportivo(dadosBoneEsportivo[1], dadosBoneEsportivo[2],
 	                Double.parseDouble(dadosBoneEsportivo[3]), dadosBoneEsportivo[4], dadosBoneEsportivo[5], dadosBoneEsportivo[6]);
@@ -114,6 +136,16 @@ public class DadosControl {
 	        return false; // Ocorreu uma exceção durante a inserção
 	    }
 	}
+
+    public boolean inserirBEsportivo(String[] dadosBoneEsportivo) {
+		if(EditarBoneEsportivo(dadosBoneEsportivo)) {
+			setQtdBEsportivo(getQntd_boneEsportivo()+1);
+            System.out.print("Editou com sucesso! dados control");
+			return true;
+		}
+		return false;
+	}
+
 
     public boolean EditarFilial(String[] dadosfilial) {
         Filial fil = new Filial(dadosfilial[1], dadosfilial[2]);

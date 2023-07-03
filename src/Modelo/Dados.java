@@ -13,10 +13,10 @@ public class Dados {
         dBonesCasual[0] = new BoneCasual("BoneC1", "Marca1", 10.0, "Descrição1", "Casual", "12");
         dBonesCasual[1] = new BoneCasual("BoneC2", "Marca2", 15.0, "Descrição2", "Casual", "15");
         dBonesCasual[2] = new BoneCasual("BoneC3", "Marca3", 20.0, "Descrição3", "Casual", "89");
-        dBonesEsportivos[4] = new BoneEsportivo("BoneE1", "Marca1", 10.0, "Descrição1", "Esportivo", "65");
-        dBonesEsportivos[5] = new BoneEsportivo("BoneE2", "Marca2", 15.0, "Descrição2", "Esportivo", "45");
-        dBonesEsportivos[6] = new BoneEsportivo("BoneE3", "Marca3", 20.0, "Descrição3", "Esportivo", "96");
-
+        dBonesEsportivos[0] = new BoneEsportivo("BoneE1", "Marca1", 10.0, "Descrição1", "Esportivo", "65");
+        dBonesEsportivos[1] = new BoneEsportivo("BoneE2", "Marca2", 15.0, "Descrição2", "Esportivo", "45");
+        dBonesEsportivos[2] = new BoneEsportivo("BoneE3", "Marca3", 20.0, "Descrição3", "Esportivo", "96");
+        
         dFiliais[0] = new Filial("Filial1", "Cidade1");
         dFiliais[1] = new Filial("Filial2", "Cidade2");
         dFiliais[2] = new Filial("Filial3", "Cidade3");
